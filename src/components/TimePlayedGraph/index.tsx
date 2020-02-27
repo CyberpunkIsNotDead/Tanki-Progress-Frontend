@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const TimePlayedGraph = () => (
-  <div className='timePlayedGraph'>
+  <div className='time-played-graph'>
     TimePlayedGraph
   </div>
 );

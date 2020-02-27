@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const UserEventsBlock = () => (
-  <div className='userEventsBlock'>
+  <div className='user-events-block'>
     UserEvents
   </div>
 );

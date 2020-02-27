@@ -11,15 +11,19 @@ import { SearchField } from './components/SearchField';
 function App() {
   return (
     <BrowserRouter>
-    <SearchField />
-    <Navbar />
-    <Switch>
-      <Route exact path={'/'} component={IndexPage} />
-      <Route path={'/wall'} component={WallPage} />
-      <Route path={'/summary'} component={SummaryPage} />
-      <Route path={'/monitoring'} component={MonitoringPage} />
-      <Route path={'/logs'} component={LogsPage} />
-    </Switch>
+    <div className='page'>
+      <SearchField />
+      <Navbar />
+      <div className='page-content'>
+        <Switch>
+          <Route exact path={'/'} component={IndexPage} />
+          <Route path={'/wall'} component={WallPage} />
+          <Route path={'/summary'} component={SummaryPage} />
+          <Route path={'/monitoring'} component={MonitoringPage} />
+          <Route path={'/logs'} component={LogsPage} />
+        </Switch>
+      </div>
+    </div>
   </BrowserRouter>
   );
 }

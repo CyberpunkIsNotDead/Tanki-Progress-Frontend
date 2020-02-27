@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const FriendsBlock = () => (
-  <div className='friendsBlock'>
+  <div className='friends-block'>
     Friends
   </div>
 );

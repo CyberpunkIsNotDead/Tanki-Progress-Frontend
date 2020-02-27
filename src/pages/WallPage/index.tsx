@@ -15,7 +15,7 @@ export const WallPage = () => (
       <FriendsBlock />
       <AchievementsBlock />
     </div>
-    <div className='content'>
+    <div className='content-block'>
       <SummaryTable />
       <TimePlayedGraph />
       <UserEventsBlock />
