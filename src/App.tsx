@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { IndexPage } from './pages/IndexPage';
 import { WallPage } from './pages/WallPage';
