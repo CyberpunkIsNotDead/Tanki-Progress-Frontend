@@ -7,10 +7,12 @@ import { SummaryPage } from './pages/SummaryPage';
 import { MonitoringPage } from './pages/MonitoringPage';
 import { LogsPage } from './pages/LogsPage';
 import { Navbar } from './components/Navbar';
+import { SearchField } from './components/SearchField';
 
 function App() {
   return (
     <BrowserRouter>
+    <SearchField />
     <Navbar />
     <Switch>
       <Route exact path={'/'} component={IndexPage} />

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
-export const IndexPage = () => (
+export const SearchField = () => (
   <Fragment>
-    Home
+    SearchField
   </Fragment>
 );
