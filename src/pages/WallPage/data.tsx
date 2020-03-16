@@ -24,9 +24,72 @@ export const achievements: Array<Achievement> = [
     current: 'one',
     max: 'two',
   },
+  {
+    name: 'ach1',
+    current: 20,
+    max: 100,
+  },
+  {
+    name: 'ach2',
+  },
+  {
+    name: 'ach3',
+    current: 'one',
+    max: 'two',
+  },
+  {
+    name: 'ach1',
+    current: 20,
+    max: 100,
+  },
+  {
+    name: 'ach2',
+  },
+  {
+    name: 'ach3',
+    current: 'one',
+    max: 'two',
+  },
+  {
+    name: 'ach1',
+    current: 20,
+    max: 100,
+  },
+  {
+    name: 'ach2',
+  },
+  {
+    name: 'ach3',
+    current: 'one',
+    max: 'two',
+  },
 ]
 
 export const friends: Array<Friend> = [
+  {
+    name: 'fr1',
+  },
+  {
+    name: 'fr2',
+  },
+  {
+    name: 'fr1',
+  },
+  {
+    name: 'fr2',
+  },
+  {
+    name: 'fr1',
+  },
+  {
+    name: 'fr2',
+  },
+  {
+    name: 'fr1',
+  },
+  {
+    name: 'fr2',
+  },
   {
     name: 'fr1',
   },

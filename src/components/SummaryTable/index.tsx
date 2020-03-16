@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const SummaryTable = () => (
-  <div className='summary-table'>
+  <div id='summary-table'>
     SummaryTable
   </div>
 );
