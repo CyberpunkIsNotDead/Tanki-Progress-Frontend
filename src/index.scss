@@ -36,12 +36,17 @@ a:hover {
 //     monospace;
 // }
 
-.page {
-  margin: auto;
-  width: 90%;
-}
+// .page {
+//   margin: auto;
+//   width: 90%;
+// }
 
-.page-content {
-  display: flexbox;
-  padding: 3% 3% 3% 3%;
+// .page-content {
+//   display: flexbox;
+//   padding: 3% 3% 3% 3%;
+// }
+
+#root {
+  display: grid;
+  align-items: center;
 }
