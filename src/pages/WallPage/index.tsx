@@ -10,16 +10,16 @@ export const WallPage = () => (
   <div id='wall'>
     <section id='sidebar'>
       <SidebarBlock
-        dataArr={achievements}
-        blockHeader='Achievements'
-        blockClassName='achievements-block'
-        itemClassName='achievement'
-      />
-      <SidebarBlock
         dataArr={friends}
         blockHeader='Friends'
         blockClassName='friends-block'
         itemClassName='friend'
+      />
+      <SidebarBlock
+        dataArr={achievements}
+        blockHeader='Achievements'
+        blockClassName='achievements-block'
+        itemClassName='achievement'
       />
     </section>
     <section id='content-block'>
