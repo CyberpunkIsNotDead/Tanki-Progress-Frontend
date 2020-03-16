@@ -19,15 +19,25 @@ interface IProps {
   itemClassName: string,
 };
 
+const blockClass = 'sidebar-block';
+// const headerClass = blockClass + '-header';
+// const contentClass = blockClass + '-content';
+// const wrapperClass = blockClass + '-wrapper';
+
 export const SidebarBlock = (props: IProps) => (
-  <div className={`sidebar-block ${props.blockClassName}`}>
-    <h3 className='sidebar-block-header'>{props.blockHeader}</h3>
-    <ul className='sidebar-block-content'>
+  <div className={`${blockClass} ${props.blockClassName}`}>
+    <h3 className={`${blockClass}-header`}>{props.blockHeader}</h3>
+    <ul className={`${blockClass}-content`}>
       {
         props.dataArr
         ? props.dataArr.map(item => (
-          <li className={`sidebar-block-item ${props.itemClassName}`}>
-            {item.name}
+          <li className={`${blockClass}-item-wrapper`}>
+            <img
+              className={`${blockClass}-item-img ${props.itemClassName}`}
+              src={item.imgUrl}
+              alt={item.name}
+            />
+            <p className={`${blockClass}-item-name`}>{item.name}</p>
           </li>
         ))
         : null
