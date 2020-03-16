@@ -1,7 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-export const SearchField = () => (
-  <Fragment>
-    SearchField
-  </Fragment>
-);
+export const SearchField = () => {
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // logic
+  };
+
+  return (
+    <form className='search-form' onSubmit={handleSubmit}>
+      <input type='search' name='search' placeholder='search user' />
+      <input type='submit' value='Search' />
+    </form>
+  );
+};

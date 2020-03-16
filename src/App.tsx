@@ -11,10 +11,11 @@ import { SearchField } from './components/SearchField';
 function App() {
   return (
     <BrowserRouter>
-    <div className='page'>
-      <SearchField />
-      <Navbar />
-      <div className='page-content'>
+      <header>
+        <SearchField />
+        <Navbar />
+      </header>
+      <main>
         <Switch>
           <Route exact path={'/'} component={IndexPage} />
           <Route path={'/wall'} component={WallPage} />
@@ -22,9 +23,8 @@ function App() {
           <Route path={'/monitoring'} component={MonitoringPage} />
           <Route path={'/logs'} component={LogsPage} />
         </Switch>
-      </div>
-    </div>
-  </BrowserRouter>
+      </main>
+    </BrowserRouter>
   );
 }
 
