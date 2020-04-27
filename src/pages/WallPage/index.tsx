@@ -3,7 +3,8 @@ import { SummaryTable } from '../../components/SummaryTable';
 import { TimePlayedGraph } from '../../components/TimePlayedGraph';
 import { UserEventsBlock } from '../../components/UserEventsBlock';
 import { SidebarBlock } from '../../components/SidebarBlock'
-import { achievements, friends } from './data'
+import { PropertyTable } from '../../components/PropertyTable'
+import { achievements, friends, obj } from './data'
 
 
 export const WallPage = () => (
@@ -23,6 +24,7 @@ export const WallPage = () => (
       />
     </section>
     <section id='content-block'>
+      <PropertyTable obj={obj} />
       <SummaryTable />
       <TimePlayedGraph />
       <UserEventsBlock />

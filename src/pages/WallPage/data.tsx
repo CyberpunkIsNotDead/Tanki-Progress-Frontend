@@ -119,3 +119,10 @@ export const friends: Array<Friend> = [
     imgUrl: process.env.PUBLIC_URL + '/test_avatar.png',
   },
 ]
+
+export const obj =                 {
+  "name" : "Total",
+  "role" : "Total",
+  "score" : 3007217,
+  "time" : 4347227
+}
