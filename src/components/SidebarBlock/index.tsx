@@ -30,8 +30,8 @@ export const SidebarBlock = (props: IProps) => (
     <ul className={`${blockClass}-content`}>
       {
         props.dataArr
-        ? props.dataArr.map(item => (
-          <li className={`${blockClass}-item-wrapper`}>
+        ? props.dataArr.map((item, index) => (
+          <li className={`${blockClass}-item-wrapper`} key={index}>
             <img
               className={`${blockClass}-item-img ${props.itemClassName}`}
               src={item.imgUrl}

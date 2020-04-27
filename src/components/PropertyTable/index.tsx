@@ -8,12 +8,12 @@ export const PropertyTable = (props: PropertyTableProps) => (
   <ul>
     {
       Object.entries(props.obj).map(
-        entry => {
+        (entry, index) => {
           console.log(entry)
           const [key, value] = entry;
           console.log(`key: ${key} value: ${value}`)
           return (
-            <li key={key}>
+            <li key={index}>
               <span>{key}</span>
               &nbsp;
               <span>{value}</span>
