@@ -126,3 +126,13 @@ export const obj =                 {
   "score" : 3007217,
   "time" : 4347227
 }
+
+export const chartData = [
+  {'day': 'mon', 'kills': 19},
+  {'day': 'tue', 'kills': 0},
+  {'day': 'wed', 'kills': 23},
+  {'day': 'thu', 'kills': 38},
+  {'day': 'fri', 'kills': 0},
+  {'day': 'sat', 'kills': 0},
+  {'day': 'sun', 'kills': 19},
+]

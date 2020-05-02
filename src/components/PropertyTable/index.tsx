@@ -5,7 +5,7 @@ interface PropertyTableProps {
 }
 
 export const PropertyTable = (props: PropertyTableProps) => (
-  <ul>
+  <ul className='property-table'>
     {
       Object.entries(props.obj).map(
         (entry, index) => {
