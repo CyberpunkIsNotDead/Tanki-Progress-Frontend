@@ -18,6 +18,10 @@ interface IData {
   monthly: Array<IDaily> // type for empty array?
 }
 
+interface IChartData {
+  [key: string]: number | string | boolean | undefined
+} // should be an intersection type or smth
+
 interface ChartWrapperProps {
   data: IData,
   dataKey: string,
@@ -31,7 +35,7 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
   });
 
 
-  function selectData(key: keyof IDaily) {
+  function selectData(key: keyof IDaily): Array<IChartData> {
     let newData = props.data.daily.map((obj: IDaily) => {
       console.log(obj[key])
       return ({
