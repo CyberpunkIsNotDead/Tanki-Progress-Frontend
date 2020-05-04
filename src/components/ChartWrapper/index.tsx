@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Chart } from '../Chart'
-import { chartData } from '../../pages/WallPage/data'
+// import { chartData } from '../../pages/WallPage/data'
 
 interface IDaily {
   timestamp?: string,
@@ -19,6 +19,11 @@ interface IData {
   monthly: Array<IDaily> // type for empty array?
 }
 
+// interface IChartData {
+//   day: string | undefined,
+//   [x: string]: string
+// }
+
 interface ChartWrapperProps {
   data: IData,
   dataKey: string,
@@ -26,7 +31,10 @@ interface ChartWrapperProps {
 
 export default function ChartWrapper(props: ChartWrapperProps): React.ReactElement {
 
-  const [localState, setLocalState] = useState(chartData);
+  const [localState, setLocalState] = useState({
+    chartData: selectData('cry'),
+    dataKey: 'cry'
+  });
 
   // console.log(props.data.daily)
 
@@ -37,35 +45,35 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
   //   });
   // }))
 
-  function selectData(key: keyof IDaily): void {
-    let chartData = props.data.daily.map((obj: IDaily) => {
+  function selectData(key: keyof IDaily) {
+    let newData = props.data.daily.map((obj: IDaily) => {
       console.log(obj[key])
       return ({
         day: obj.timestamp,
         [key]: obj[key] === undefined ? 0 : obj[key]
       });
     });
-    console.log(chartData)
-    // // return chartData
+
+    return newData
   }
 
   function limitDataBy(period: string): void {
     switch(period) {
       case 'week':
         console.log('week');
-        setLocalState(chartData);
+        setLocalState({...localState});
         break;
       case 'month':
         console.log('month');
-        setLocalState(chartData);
+        setLocalState({...localState});
         break;
       case 'all':
         console.log('all');
-        setLocalState(chartData);
+        setLocalState({...localState});
         break;
       default:
         console.log('all');
-        setLocalState(chartData);
+        setLocalState({...localState});
         break;
     }
   }; 
@@ -77,7 +85,10 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
           <button onClick={() => limitDataBy('month')}>month</button>
           <button onClick={() => limitDataBy('all')}>all</button>
       </div>
-      <Chart data={localState} />
+      <Chart
+        data={localState.chartData}
+        dataKey={localState.dataKey}
+      />
       <div>
         <button onClick={() => selectData('cry')}>Cry</button>
         <button>Exp</button>
