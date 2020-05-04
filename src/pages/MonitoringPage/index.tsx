@@ -7,10 +7,15 @@ import {
 } from '../../data'
 
 
-export const MonitoringPage = () => (
-  <Fragment>
-    <Link to='/'>back</Link>
-    MonitoringPage
-    <ChartWrapper data={base} />
-  </Fragment>
-);
+export const MonitoringPage = () => {
+
+  // console.log(base)
+
+  return (
+    <Fragment>
+      <Link to='/'>back</Link>
+      MonitoringPage
+      <ChartWrapper data={base} dataKey='kills' />
+    </Fragment>
+  )
+};

@@ -1,31 +1,53 @@
-import React, {
-  useState,
-  // useContext
-} from 'react';
+import React, { useState } from 'react';
 import { Chart } from '../Chart'
 import { chartData } from '../../pages/WallPage/data'
-// import { Context } from '../../context';
 
-// interface data {
+interface IDaily {
+  timestamp?: string,
+  kills?: number,
+  deaths?: number,
+  cry?: number,
+  score?: number,
+  time?: number,
+  hasPremium?: boolean
+}
 
-// }
+interface IData {
+  login: string,
+  daily: Array<IDaily>,
+  weekly: Array<IDaily>,
+  monthly: Array<IDaily> // type for empty array?
+}
 
 interface ChartWrapperProps {
-  data: Object,
+  data: IData,
+  dataKey: string,
 };
 
 export default function ChartWrapper(props: ChartWrapperProps): React.ReactElement {
 
-  // const {dataState, setDataState} = useContext(Context)
-
   const [localState, setLocalState] = useState(chartData);
 
-  // function fetchData() {
-  //   fetch('')
-  //   .then(data => {console.log(data)})
-  // };
+  // console.log(props.data.daily)
 
-  console.log(props.data)
+  // console.log(props.data.daily.map((key: IDaily) => {
+  //   return ({
+  //     day: key.timestamp,
+  //     kills: key.kills === undefined ? 0 : key.kills
+  //   });
+  // }))
+
+  function selectData(key: keyof IDaily): void {
+    let chartData = props.data.daily.map((obj: IDaily) => {
+      console.log(obj[key])
+      return ({
+        day: obj.timestamp,
+        [key]: obj[key] === undefined ? 0 : obj[key]
+      });
+    });
+    console.log(chartData)
+    // // return chartData
+  }
 
   function limitDataBy(period: string): void {
     switch(period) {
@@ -57,9 +79,9 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
       </div>
       <Chart data={localState} />
       <div>
-        <button>Period1</button>
-        <button>Period2</button>
-        <button>Period3</button>
+        <button onClick={() => selectData('cry')}>Cry</button>
+        <button>Exp</button>
+        <button>Time</button>
       </div>
     </div>
   );
