@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Chart } from '../Chart'
-// import { chartData } from '../../pages/WallPage/data'
 
 interface IDaily {
   timestamp?: string,
@@ -19,11 +18,6 @@ interface IData {
   monthly: Array<IDaily> // type for empty array?
 }
 
-// interface IChartData {
-//   day: string | undefined,
-//   [x: string]: string
-// }
-
 interface ChartWrapperProps {
   data: IData,
   dataKey: string,
@@ -36,14 +30,6 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
     dataKey: 'cry'
   });
 
-  // console.log(props.data.daily)
-
-  // console.log(props.data.daily.map((key: IDaily) => {
-  //   return ({
-  //     day: key.timestamp,
-  //     kills: key.kills === undefined ? 0 : key.kills
-  //   });
-  // }))
 
   function selectData(key: keyof IDaily) {
     let newData = props.data.daily.map((obj: IDaily) => {
@@ -76,7 +62,13 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
         setLocalState({...localState});
         break;
     }
-  }; 
+  };
+
+  function updateState(key: keyof IDaily) {
+    setLocalState({
+      ...localState, chartData: selectData(key), dataKey: key
+    })
+  }
 
   return (
     <div className='chart-block'>
@@ -90,9 +82,9 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
         dataKey={localState.dataKey}
       />
       <div>
-        <button onClick={() => selectData('cry')}>Cry</button>
-        <button>Exp</button>
-        <button>Time</button>
+        <button onClick={() => updateState('cry')}>Cry</button>
+        <button onClick={() => updateState('score')}>Exp</button>
+        <button onClick={() => updateState('time')}>Time</button>
       </div>
     </div>
   );
