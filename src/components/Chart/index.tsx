@@ -3,17 +3,12 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 
 interface ChartProps {
   data: Array<Object>,
+  // dataKey: string,
+
 };
 
 export const Chart = (props: ChartProps): React.ReactElement => {
   return (
-    // <ul id={`${props.title}-chart`}>
-    //   {
-    //     props.data.map((element, index) => (
-    //     <li key={index}>{element}</li>
-    //     ))
-    //   }
-    // </ul>
     <LineChart
       width={600}
       height={300}
