@@ -2,14 +2,17 @@ import React from 'react';
 import { SummaryTable } from '../../components/SummaryTable';
 import { TimePlayedGraph } from '../../components/TimePlayedGraph';
 import { UserEventsBlock } from '../../components/UserEventsBlock';
-import { SidebarBlock } from '../../components/SidebarBlock'
-import { PropertyTable } from '../../components/PropertyTable'
-import { achievements, friends, obj } from './data'
+// import { SidebarBlock } from '../../components/SidebarBlock'
+// import { PropertyTable } from '../../components/PropertyTable'
+// import {
+//   // achievements,
+//   // friends,
+//   obj } from './data'
 
 
 export const WallPage = () => (
   <div id='wall'>
-    <section id='sidebar'>
+    {/* <section id='sidebar'>
       <SidebarBlock
         dataArr={friends}
         blockHeader='Friends'
@@ -22,9 +25,8 @@ export const WallPage = () => (
         blockClassName='achievements-block'
         itemClassName='achievement'
       />
-    </section>
+    </section> */}
     <section id='content-block'>
-      <PropertyTable obj={obj} />
       <SummaryTable />
       <TimePlayedGraph />
       <UserEventsBlock />

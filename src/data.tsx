@@ -146,3 +146,11 @@ export const base2 = {
   ],
   "monthly": []
 }
+
+
+export const obj =                 {
+  "name" : "Total",
+  "role" : "Total",
+  "score" : 3007217,
+  "time" : 4347227
+}

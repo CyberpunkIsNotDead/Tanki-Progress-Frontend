@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SearchField = () => {
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     // logic

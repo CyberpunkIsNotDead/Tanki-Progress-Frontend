@@ -1,5 +1,33 @@
 .property-table {
   li {
-    display: block;
+    display: flex;
+    align-items: baseline;
+    // justify-content: space-between;
+    color: #373737;
+    margin: 5px;
+    padding: 5px;
+    // div {
+    //   display: block;
+    //   width: auto;
+    // }
   }
 }
+
+.property-spacer {
+  // display: block;
+  width: 100%;
+  // height: 10px;
+  // // flex-shrink: 9999;
+  // // flex-grow: 9999;
+  border-bottom: 1px dotted #373737;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+// .property-key {
+//   width: 100px;
+// }
+
+// .property-value {
+//   width: 100px;
+// }

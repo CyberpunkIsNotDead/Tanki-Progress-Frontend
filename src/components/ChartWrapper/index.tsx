@@ -37,9 +37,18 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
   function selectData(key: keyof IDaily): Array<IChartData> {
     let newData = props.data.daily.map((obj: IDaily) => {
-      console.log(obj[key])
+      // console.log(obj[key])
+      let dateString: string
+
+      if (typeof obj.timestamp === 'string') {
+        const date = new Date(obj.timestamp)
+        dateString = date.getDate() + '/' + date.getMonth()
+      } else {
+        dateString = '?'
+      }
+
       return ({
-        day: obj.timestamp,
+        day: dateString,
         [key]: obj[key] === undefined ? 0 : obj[key]
       });
     });

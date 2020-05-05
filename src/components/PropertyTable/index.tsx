@@ -14,9 +14,9 @@ export const PropertyTable = (props: PropertyTableProps) => (
           console.log(`key: ${key} value: ${value}`)
           return (
             <li key={index}>
-              <span>{key}</span>
-              &nbsp;
-              <span>{value}</span>
+              <div className='property-key'>{key}</div>
+              <div className='property-spacer'></div>
+              <div className='property-value'>{value}</div>
             </li>
           )
         }
