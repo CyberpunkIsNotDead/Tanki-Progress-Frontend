@@ -21,9 +21,11 @@ export default function LoginForm(): React.ReactElement {
     // logic
   };
 
-  const handleChange = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleChange = (event: React.FormEvent): void => {
+    const element = event.target as HTMLInputElement
+
     setLoginState({
-      ...loginState, [event.target.name]: event.target.value
+      ...loginState, [element.name]: element.value
     })
   }
 
