@@ -1,25 +1,25 @@
 // eslint-disable-next-line
 import React, {
-  createContext,
-  useReducer
+  // createContext,
+  // useReducer
 } from 'react';
-import reducer from './reducer'
+// import reducer from './reducer'
 
-const initialState = {
-  data: null,
-  isLoading: false,
-}
+// const initialState = {
+//   data: null,
+//   isLoading: false,
+// }
 
-export const Context = createContext(null)
+// export const Context = createContext(null)
 
-export function ContextWrapper({children}): React.ReactElement {
-  const [state, dispatch] = useReducer(reducer, initialState)
+// export function ContextWrapper({children}): React.ReactElement {
+//   const [state, dispatch] = useReducer(reducer, initialState)
 
-  return (
-    <Context.Provider value={{
-      state, dispatch
-    }}>
-      {children}
-    </Context.Provider>
-  )
-}
+//   return (
+//     <Context.Provider value={{
+//       state, dispatch
+//     }}>
+//       {children}
+//     </Context.Provider>
+//   )
+// }
