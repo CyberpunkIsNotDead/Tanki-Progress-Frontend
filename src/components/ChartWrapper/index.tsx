@@ -30,12 +30,18 @@ interface ChartWrapperProps {
 export default function ChartWrapper(props: ChartWrapperProps): React.ReactElement {
 
   const [localState, setLocalState] = useState({
-    chartData: selectData('cry'),
+    chartData: selectDataType('cry'),
     dataKey: 'cry'
   });
 
+  // const daily = props.data.daily
+  // const weekly = props.data.weekly
+  // const monthly = props.data.monthly
 
-  function selectData(key: keyof IDaily): Array<IChartData> {
+  // 
+
+
+  function selectDataType(key: keyof IDaily): Array<IChartData> {
     let newData = props.data.daily.map((obj: IDaily) => {
       // console.log(obj[key])
       let dateString: string
@@ -56,7 +62,7 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
     return newData
   }
 
-  function limitDataBy(period: string): void {
+  function selectDataPeriod(period: string): void {
     switch(period) {
       case 'week':
         console.log('week');
@@ -79,16 +85,16 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
   function updateState(key: keyof IDaily) {
     setLocalState({
-      ...localState, chartData: selectData(key), dataKey: key
+      ...localState, chartData: selectDataType(key), dataKey: key
     })
   }
 
   return (
     <div className='chart-block'>
       <div>
-          <button onClick={() => limitDataBy('week')}>week</button>
-          <button onClick={() => limitDataBy('month')}>month</button>
-          <button onClick={() => limitDataBy('all')}>all</button>
+          <button onClick={() => selectDataPeriod('week')}>week</button>
+          <button onClick={() => selectDataPeriod('month')}>month</button>
+          <button onClick={() => selectDataPeriod('all')}>all</button>
       </div>
       <Chart
         data={localState.chartData}
