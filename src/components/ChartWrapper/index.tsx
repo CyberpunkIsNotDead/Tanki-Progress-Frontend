@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Chart } from '../Chart'
 
-interface IDaily {
+
+export interface IEntry {
   timestamp?: string,
   kills?: number,
   deaths?: number,
@@ -11,11 +12,11 @@ interface IDaily {
   hasPremium?: boolean
 }
 
-interface IData {
+export interface IData {
   login: string,
-  daily: Array<IDaily>,
-  weekly: Array<IDaily>,
-  monthly: Array<IDaily> // type for empty array?
+  daily: Array<IEntry>,
+  weekly: Array<IEntry>,
+  monthly: Array<IEntry> // type for an empty array?
 }
 
 interface IChartData {
@@ -27,23 +28,20 @@ interface ChartWrapperProps {
   dataKey: string,
 };
 
+
 export default function ChartWrapper(props: ChartWrapperProps): React.ReactElement {
 
-  const [localState, setLocalState] = useState({
-    chartData: selectDataType('cry'),
-    dataKey: 'cry'
-  });
+  const data = props.data
 
-  // const daily = props.data.daily
-  // const weekly = props.data.weekly
-  // const monthly = props.data.monthly
-
-  // 
+  const [typeState, setTypeState] = useState({
+    chartData: selectDataType('cry', 'daily'),
+    dataKey: 'cry',
+    period: 'daily'
+  }); 
 
 
-  function selectDataType(key: keyof IDaily): Array<IChartData> {
-    let newData = props.data.daily.map((obj: IDaily) => {
-      // console.log(obj[key])
+  function selectDataType(key: keyof IEntry, period: keyof IData): Array<IChartData> {
+    let newData = (data[period] as Array<IEntry>).map((obj: IEntry) => {
       let dateString: string
 
       if (typeof obj.timestamp === 'string') {
@@ -62,48 +60,39 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
     return newData
   }
 
-  function selectDataPeriod(period: string): void {
-    switch(period) {
-      case 'week':
-        console.log('week');
-        setLocalState({...localState});
-        break;
-      case 'month':
-        console.log('month');
-        setLocalState({...localState});
-        break;
-      case 'all':
-        console.log('all');
-        setLocalState({...localState});
-        break;
-      default:
-        console.log('all');
-        setLocalState({...localState});
-        break;
-    }
-  };
 
-  function updateState(key: keyof IDaily) {
-    setLocalState({
-      ...localState, chartData: selectDataType(key), dataKey: key
+  function changeType(key: keyof IEntry) {
+    setTypeState({
+      ...typeState,
+      chartData: selectDataType(key, typeState.period as keyof IData),
+      dataKey: key
     })
   }
+
+
+  function changePeriod(period: string) {
+    setTypeState({
+      ...typeState,
+      chartData: selectDataType(typeState.dataKey as keyof IEntry, period as keyof IData)
+    })
+  }
+  
 
   return (
     <div className='chart-block'>
       <div>
-          <button onClick={() => selectDataPeriod('week')}>week</button>
-          <button onClick={() => selectDataPeriod('month')}>month</button>
-          <button onClick={() => selectDataPeriod('all')}>all</button>
+          <button onClick={() => changePeriod('daily')}>daily</button>
+          <button onClick={() => changePeriod('weekly')}>weekly</button>
+          <button onClick={() => changePeriod('monthly')}>monthly</button>
       </div>
       <Chart
-        data={localState.chartData}
-        dataKey={localState.dataKey}
+        data={typeState.chartData}
+        dataKey={typeState.dataKey}
       />
       <div>
-        <button onClick={() => updateState('cry')}>Cry</button>
-        <button onClick={() => updateState('score')}>Exp</button>
-        <button onClick={() => updateState('time')}>Time</button>
+        <button onClick={() => changeType('cry')}>Cry</button>
+        <button onClick={() => changeType('score')}>Exp</button>
+        <button onClick={() => changeType('time')}>Time</button>
       </div>
     </div>
   );
