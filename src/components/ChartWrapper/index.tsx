@@ -33,14 +33,14 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
   const data = props.data
 
-  const [typeState, setTypeState] = useState({
-    chartData: selectDataType('cry', 'daily'),
+  const [localState, setLocalState] = useState({
+    chartData: filterData('cry', 'daily'),
     dataKey: 'cry',
     period: 'daily'
   }); 
 
 
-  function selectDataType(key: keyof IEntry, period: keyof IData): Array<IChartData> {
+  function filterData(key: keyof IEntry, period: keyof IData): Array<IChartData> {
     let newData = (data[period] as Array<IEntry>).map((obj: IEntry) => {
       let dateString: string
 
@@ -62,18 +62,21 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
 
   function changeType(key: keyof IEntry) {
-    setTypeState({
-      ...typeState,
-      chartData: selectDataType(key, typeState.period as keyof IData),
+    setLocalState
+({
+      ...localState,
+      chartData: filterData(key, localState.period as keyof IData),
       dataKey: key
     })
   }
 
 
   function changePeriod(period: string) {
-    setTypeState({
-      ...typeState,
-      chartData: selectDataType(typeState.dataKey as keyof IEntry, period as keyof IData)
+    setLocalState
+({
+      ...localState,
+      chartData: filterData(localState.dataKey as keyof IEntry, period as keyof IData),
+      period: period
     })
   }
   
@@ -86,8 +89,8 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
           <button onClick={() => changePeriod('monthly')}>monthly</button>
       </div>
       <Chart
-        data={typeState.chartData}
-        dataKey={typeState.dataKey}
+        data={localState.chartData}
+        dataKey={localState.dataKey}
       />
       <div>
         <button onClick={() => changeType('cry')}>Cry</button>
