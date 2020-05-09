@@ -62,8 +62,7 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
 
   function changeType(key: keyof IEntry) {
-    setLocalState
-({
+    setLocalState({
       ...localState,
       chartData: filterData(key, localState.period as keyof IData),
       dataKey: key
@@ -72,8 +71,7 @@ export default function ChartWrapper(props: ChartWrapperProps): React.ReactEleme
 
 
   function changePeriod(period: string) {
-    setLocalState
-({
+    setLocalState({
       ...localState,
       chartData: filterData(localState.dataKey as keyof IEntry, period as keyof IData),
       period: period
